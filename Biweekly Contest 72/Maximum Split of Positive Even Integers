@@ -1,0 +1,41 @@
+//Link
+https://leetcode.com/contest/biweekly-contest-72/problems/maximum-split-of-positive-even-integers/
+
+class Solution {
+public:
+    
+    vector<long long> maximumEvenSplit(long long finalSum) {
+        
+        vector<long long>v;
+        
+        long long num = finalSum;
+        
+        // So Basically the idea is to find the prime factors of number//
+        // If number is prime return empty
+        
+        if (num % 2!=0)   //  number is odd
+        {
+            return v;
+        }
+          
+        
+            int i=2;
+            long long currsum=0;
+            while((currsum+i)<=num)
+            {
+                v.push_back(i);
+                currsum=currsum+i;
+                i=i+2;
+            }
+        
+        int n = v.size();
+        
+        v[n-1]=v[n-1]+(num-currsum);
+       
+        
+        
+        
+        return v;
+        
+    }
+};
